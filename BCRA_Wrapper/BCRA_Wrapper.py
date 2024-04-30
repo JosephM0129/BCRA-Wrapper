@@ -1,3 +1,4 @@
+#%%
 import pandas as pd
 import requests
 
@@ -49,3 +50,9 @@ def principales_variables() -> pd.DataFrame:
     df = __connect_to_data(f"{base_url}/estadisticas/v1/principalesvariables")
     df = __parse_cols(df)
     return df
+#%%
+df_tc_mino = datos_variable(4, '2023-01-01','2024-04-30')
+df_inf_men = datos_variable(27, '2023-01-01','2024-04-30')
+
+df_tc_mino.to_excel('./tc_minorista_bcra.xlsx')
+df_inf_men.to_excel('./inf_mensual%_bcra.xlsx')
